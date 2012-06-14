@@ -10,4 +10,4 @@ javascript: $(JS)
 	cat js/app.js  			>> $(LUKEC_JS)
 
 live: $(RESOURCES) javascript
-	rsync -avz index.html css img js $(TD):web/lukec
+	rsync -avz index.html css img js joy:web/lukec
