@@ -1,5 +1,6 @@
 LUKEC_JS=js/luk.ec.js
-RESOURCES=index.html css img js
+TOOLS=setup.sh .htaccess env
+RESOURCES=index.html css img js $(TOOLS)
 JS=$(wildcard js/*)
 all: javascript
 
@@ -10,4 +11,4 @@ javascript: $(JS)
 	cat js/app.js  			>> $(LUKEC_JS)
 
 live: $(RESOURCES) javascript
-	rsync -avz index.html css img js joy:web/lukec
+	rsync -avz $(RESOURCES) td:web/lukec
