@@ -1,0 +1,57 @@
+export LANG="en_US.UTF-8"  
+export EDITOR=vim          
+export PAGER=less          
+export HISTIGNORE="&:[bf]g:exit"
+export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+
+source ~/perl5/perlbrew/etc/bashrc
+path-prepend ./bin
+path-prepend $HOME/perl5/perlbrew/perls/current/bin
+umask 022                  
+
+if [ -n "$TTY" ]; then     
+    stty -ixon # get rid of ^S and ^Q
+fi
+
+alias profile='source ~/.bashrc'
+alias ll='ls -l'
+alias screen='TERM=screen screen'
+alias pmf='perl Makefile.PL < /dev/null'
+alias mt='make test'
+
+if [ "$TERM" = "screen" ]; then
+  swtcwd () {
+    local HPWD="$PWD"
+    case $HPWD in
+      $HOME) HPWD="~";;
+      $HOME/*) HPWD=`echo $PWD | perl -pe 's!.*/!!'`;;
+    esac
+    printf '\ek%s\e\\' "$HPWD"
+  }
+  PROMPT_COMMAND="swtcwd; $PROMPT_COMMAND"
+fi
+
+##############
+# GIT Section
+##############             
+alias gst='git status'     
+alias gbr='git branch'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias ga='git add'
+alias gco='git checkout'
+alias gci='git commit -v'
+alias gcim='git commit -v -m'
+alias gcia='git commit -v -a'
+alias gciam='git commit -v -a -m'
+alias gl='git log'
+alias glol='git log --pretty=oneline'
+alias gup='git pull --rebase'
+alias gpu='git push'
+alias guppy='gup && gpu'
+alias sup='git stash && gup && git stash pop'
+alias suppy='git stash && gup && gpu && git stash pop'
+alias gcp='git cherry-pick -x'
+alias gundo='git reset HEAD^'
+
+
