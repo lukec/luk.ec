@@ -1,0 +1,12 @@
+[user]
+        name = Luke Closs
+        email = me@luk.ec
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = auto
+[core]
+        pager = less -FXRS
+[alias]
+        co = checkout
