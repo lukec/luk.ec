@@ -1,6 +1,6 @@
 LUKEC_JS=js/luk.ec.js
 TOOLS=setup.sh .htaccess env
-RESOURCES=index.html css img js $(TOOLS)
+RESOURCES=index.html spill-test.html css img js $(TOOLS)
 JS=$(wildcard js/*)
 all: javascript
 
