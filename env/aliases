@@ -1,0 +1,18 @@
+#!/bin/bash
+
+alias mosh='PERL5LIB="" mosh'
+alias screen='screen -U' # force unicode screens
+alias nopaste='nopaste -x'
+alias pale='ssh pale -t screen -x'
+alias staging='ssh staging -t screen -x'
+alias dev='mosh  --ssh="ssh -t" dev -- screen -x'
+alias cdr='cd ~/src/recollect'
+
+alias agu='sudo apt-get update'
+alias agdu='sudo apt-get update; sudo apt-get dist-upgrade'
+alias agi='sudo apt-get update; sudo apt-get install'
+alias acs='apt-cache search'
+alias acsh='apt-cache show'
+
+ls --version > /dev/null 2>&1 && alias ll='ls -l --classify --color=auto'
+echo x | (grep x --color >/dev/null 2>&1) && alias grep='grep --color=auto'
