@@ -11,4 +11,4 @@ javascript: $(JS)
 	cat js/app.js  			>> $(LUKEC_JS)
 
 live: $(RESOURCES) javascript
-	rsync -avz $(RESOURCES) td:web/lukec
+	rsync -avz $(RESOURCES) dev:/var/www/luk.ec
