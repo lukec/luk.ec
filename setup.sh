@@ -3,7 +3,6 @@
 # To use this script: curl -q luk.ec/setup.sh
 #
 
-sudo apt-get install --yes screen vim
 if [[ ! -e ~/.screenrc ]]; then
     curl -q luk.ec/env/screenrc >> ~/.screenrc
 fi
