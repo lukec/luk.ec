@@ -10,7 +10,6 @@
 " ~/.vim/plugin/perl.vim
 " ~/.vim/plugin/svn.vim
 
-autocmd BufRead *.wiki set ft=wiki tw=0
 au FileType vim set iskeyword+=. iskeyword+=/ iskeyword+=~
 set splitright
 
@@ -22,19 +21,6 @@ set vb t_vb=
 
 set exrc
 
-" ============================================
-" lookupfile.vim
-" ============================================
-nmap <unique> <silent> <C-S> :LUBufs ^.*<CR>
-let g:LookupFile_AlwaysAcceptFirst=1
-let g:LookupFile_PreserveLastPattern=0
-let g:LookupFile_AllowNewFiles=0
-let no_lookupfile_maps=1 
-
-" ============================================
-" open perl module with gf
-" ============================================
-autocmd FileType perl set isfname-=-
 
 " ============================================
 " statusline
@@ -61,3 +47,10 @@ nmap g" cs"G
 
 " recognize .psgi files as perl
 au BufNewFile,BufRead *.psgi set filetype=perl
+execute pathogen#infect()
+
+
+" Set the leader to , - default is \
+:let mapleader=","
+
+source ~/src/recollect/.vimrc

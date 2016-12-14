@@ -3,7 +3,11 @@ export EDITOR=vim
 export PAGER=less          
 export HISTIGNORE="&:[bf]g:exit"
 export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-export PATH="./bin:$HOME/bin:/opt/local/bin:$PATH"
+export PATH="./bin:$HOME/bin:/opt/local/bin:/usr/local/Cellar/go/1.2/libexec/bin:$PATH"
+export GOPATH="$HOME/.go:$HOME"
+export PATH="$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin"
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+export PATH="~/src/camlistore/bin:$PATH"
 
 set -o vi
 umask 022                  
@@ -53,4 +57,15 @@ alias suppy='git stash && gup && gpu && git stash pop'
 alias gcp='git cherry-pick -x'
 alias gundo='git reset HEAD^'
 
+. $HOME/.aliases-lukec
 
+export DOCKER_TLS_VERIFY=1
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/lukec/.boot2docker/certs/boot2docker-vm
+
+source /Users/lukec/.gvm/scripts/gvm
+
+alias d='docker'
+alias weather='curl http://wttr.in/Vancouver'
+alias staging='tmuxinator start staging'
+alias prod='tmuxinator start prod'

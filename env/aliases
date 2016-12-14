@@ -3,10 +3,11 @@
 alias mosh='PERL5LIB="" mosh'
 alias screen='screen -U' # force unicode screens
 alias nopaste='nopaste -x'
-alias pale='ssh pale -t screen -x'
-alias staging='ssh staging -t screen -x'
-alias dev='mosh  --ssh="ssh -t" dev -- screen -x'
+alias ale='ssh recollect@ale -t screen -x'
+alias staging='ssh recollect@staging -t screen -x'
 alias cdr='cd ~/src/recollect'
+alias b='ssh -t brew -- screen -x'
+alias c='ssh cellar -t screen -x'
 
 alias agu='sudo apt-get update'
 alias agdu='sudo apt-get update; sudo apt-get dist-upgrade'
@@ -16,3 +17,24 @@ alias acsh='apt-cache show'
 
 ls --version > /dev/null 2>&1 && alias ll='ls -l --classify --color=auto'
 echo x | (grep x --color >/dev/null 2>&1) && alias grep='grep --color=auto'
+
+alias kevin='ssh brew -t sudo /opt/recollect/bin/docker-dev -u kevinj'
+alias   jim='ssh brew -t sudo /opt/recollect/bin/docker-dev -u jsmiley'
+alias  luke='ssh brew -t sudo /opt/recollect/bin/docker-dev -u lukec'
+alias leigh='ssh brew -t sudo /opt/recollect/bin/docker-dev -u leigh'
+alias wataru='ssh brew -t sudo /opt/recollect/bin/docker-dev -u wataru'
+alias  brandon='ssh brew -t sudo /opt/recollect/bin/docker-dev -u brandon'
+alias    ab='ssh brew -t sudo /opt/recollect/bin/docker-dev -u autobuild'
+alias dev='~/src/recollect/dev-bin/mosh-dev lukec'
+alias kevinj='kevin'
+alias bd='dev'
+alias solr-tunnel='ssh -L10140:10.0.1.40:8181 -L10141:10.0.1.41:8181 -L10142:10.0.1.42:8181 -L10150:10.0.1.50:8983 -L10151:10.0.1.51:8983 -L10152:10.0.1.52:8983 prod-primary-db-1'
+alias jen='ssh -L8000:127.0.0.1:8000 ops-jenkins-1'
+alias pan='ssh brew -t sudo /opt/recollect/bin/docker-dev -u pan'
+
+
+alias prod-backend-1='ssh -t prod-backend-1 sudo -H -u recollect tmuxinator start recollect'
+alias prod-backend-2='ssh -t prod-backend-2 sudo -H -u recollect tmuxinator start recollect'
+
+alias staging-backend-1='ssh -t staging-backend-3 sudo -H -u recollect tmuxinator start recollect'
+alias staging-backend-2='ssh -t staging-backend-4 sudo -H -u recollect tmuxinator start recollect'
