@@ -9,4 +9,14 @@
 [core]
         pager = less -FXRS
 [alias]
+        thanks = blame
         co = checkout
+	rmdf = !git rm $(git ls-files --deleted)
+[push]
+	default = simple
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[pull]
+	rebase = true
+

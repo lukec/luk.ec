@@ -3,11 +3,14 @@ export EDITOR=vim
 export PAGER=less          
 export HISTIGNORE="&:[bf]g:exit"
 export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-export PATH="./bin:$HOME/bin:/opt/local/bin:/usr/local/Cellar/go/1.2/libexec/bin:$PATH"
-export GOPATH="$HOME/.go:$HOME"
+export PATH="$HOME/.plenv/shims:./bin:$HOME/bin:/opt/local/bin:/usr/local/Cellar/go/1.2/libexec/bin:~/Library/Python/3.6/bin:$PATH"
+export GOPATH="$HOME"
 export PATH="$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin"
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-export PATH="~/src/camlistore/bin:$PATH"
+export PATH="/Users/lukec/Library/Python/3.7/bin:$PATH"
+export REC="~/src/recollect"
+export PATH="$REC/bin:$REC/bin/scripts:$REC/bin/ops:$REC/dev-bin:$PATH"
+export PERL5LIB="$REC/lib"
 
 set -o vi
 umask 022                  
@@ -59,13 +62,30 @@ alias gundo='git reset HEAD^'
 
 . $HOME/.aliases-lukec
 
-export DOCKER_TLS_VERIFY=1
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/lukec/.boot2docker/certs/boot2docker-vm
+# export DOCKER_TLS_VERIFY=1
+# export DOCKER_HOST=tcp://192.168.59.103:2376
+# export DOCKER_CERT_PATH=/Users/lukec/.boot2docker/certs/boot2docker-vm
 
-source /Users/lukec/.gvm/scripts/gvm
+# source /Users/lukec/.gvm/scripts/gvm
 
 alias d='docker'
+alias dc='docker-compose'
 alias weather='curl http://wttr.in/Vancouver'
 alias staging='tmuxinator start staging'
 alias prod='tmuxinator start prod'
+alias ci-tmux='ssh -t ci sudo -H -u recollect tmuxinator start recollect'
+
+export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /Users/lukec/.nvm/versions/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /Users/lukec/.nvm/versions/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /Users/lukec/.nvm/versions/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /Users/lukec/.nvm/versions/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[ -f /Users/lukec/.nvm/versions/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && . /Users/lukec/.nvm/versions/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
